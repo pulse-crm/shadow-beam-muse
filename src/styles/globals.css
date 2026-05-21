@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: hsl(210 20% 98%);
+  --color-foreground: hsl(215 25% 15%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(215 25% 15%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(215 25% 15%);
+
+  --color-primary: hsl(215 90% 52%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(210 20% 95%);
+  --color-secondary-foreground: hsl(215 25% 15%);
+
+  --color-muted: hsl(210 16% 93%);
+  --color-muted-foreground: hsl(215 14% 46%);
+
+  --color-accent: hsl(210 20% 95%);
+  --color-accent-foreground: hsl(215 25% 15%);
+
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214 20% 88%);
+  --color-input: hsl(214 20% 88%);
+  --color-ring: hsl(215 90% 52%);
+
+  --color-success: hsl(142 72% 40%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-warning: hsl(38 92% 50%);
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-info: hsl(199 89% 48%);
+  --color-info-foreground: hsl(0 0% 100%);
+
+  --color-sidebar: hsl(216 28% 17%);
+  --color-sidebar-foreground: hsl(210 20% 90%);
+  --color-sidebar-primary: hsl(215 90% 60%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(216 25% 22%);
+  --color-sidebar-accent-foreground: hsl(210 20% 90%);
+  --color-sidebar-border: hsl(216 20% 25%);
+  --color-sidebar-ring: hsl(215 90% 60%);
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Color theme overrides — applied on documentElement via `.theme-<id>` */
+.theme-ocean {
+  --color-primary: hsl(192 80% 42%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(192 80% 42%);
+  --color-sidebar-primary: hsl(192 80% 50%);
+  --color-sidebar-ring: hsl(192 80% 50%);
+  --color-info: hsl(192 80% 42%);
+}
+.dark.theme-ocean {
+  --color-primary: hsl(192 80% 50%);
+  --color-sidebar-primary: hsl(192 80% 55%);
+}
+
+.theme-forest {
+  --color-primary: hsl(152 60% 38%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(152 60% 38%);
+  --color-sidebar-primary: hsl(152 60% 46%);
+  --color-sidebar-ring: hsl(152 60% 46%);
+  --color-success: hsl(152 60% 38%);
+}
+.dark.theme-forest {
+  --color-primary: hsl(152 60% 46%);
+  --color-sidebar-primary: hsl(152 60% 52%);
+}
+
+.theme-sunset {
+  --color-primary: hsl(16 80% 52%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(16 80% 52%);
+  --color-sidebar-primary: hsl(16 80% 60%);
+  --color-sidebar-ring: hsl(16 80% 60%);
+  --color-warning: hsl(16 80% 52%);
+}
+.dark.theme-sunset {
+  --color-primary: hsl(16 80% 60%);
+  --color-sidebar-primary: hsl(16 80% 64%);
+}
+
+.theme-slate {
+  --color-primary: hsl(226 60% 48%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-ring: hsl(226 60% 48%);
+  --color-sidebar-primary: hsl(226 60% 56%);
+  --color-sidebar-ring: hsl(226 60% 56%);
+}
+.dark.theme-slate {
+  --color-primary: hsl(226 60% 56%);
+  --color-sidebar-primary: hsl(226 60% 62%);
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-background: hsl(220 20% 10%);
+  --color-foreground: hsl(210 20% 92%);
+  --color-card: hsl(220 18% 13%);
+  --color-card-foreground: hsl(210 20% 92%);
+  --color-popover: hsl(220 18% 13%);
+  --color-popover-foreground: hsl(210 20% 92%);
+  --color-primary: hsl(215 90% 60%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(220 16% 18%);
+  --color-secondary-foreground: hsl(210 20% 92%);
+  --color-muted: hsl(220 14% 18%);
+  --color-muted-foreground: hsl(215 14% 55%);
+  --color-accent: hsl(220 16% 18%);
+  --color-accent-foreground: hsl(210 20% 92%);
+  --color-destructive: hsl(0 62% 40%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(220 14% 20%);
+  --color-input: hsl(220 14% 20%);
+  --color-ring: hsl(215 90% 60%);
+  --color-sidebar: hsl(220 22% 8%);
+  --color-sidebar-foreground: hsl(210 16% 80%);
+  --color-sidebar-primary: hsl(215 90% 60%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(220 18% 14%);
+  --color-sidebar-accent-foreground: hsl(210 16% 80%);
+  --color-sidebar-border: hsl(220 14% 15%);
+  --color-sidebar-ring: hsl(215 90% 60%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-foreground);
+    font-weight: 600;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  /*
+   * Global spacing utilities — change once here and the whole app shifts.
+   * Mirrors the project-files reference: page roots use space-y-4, sections
+   * use space-y-6, form rows use space-y-3, label→input pairs use space-y-1.
+   */
+  .page-stack > * + * { margin-top: 1rem; }        /* space-y-4 — page root */
+  .section-stack > * + * { margin-top: 1.5rem; }   /* space-y-6 — between major sections */
+  .form-stack > * + * { margin-top: 0.75rem; }     /* space-y-3 — between form rows */
+  .field-stack > * + * { margin-top: 0.25rem; }    /* space-y-1 — label → input */
+
+  /* Spinner animation */
+  @keyframes pulse-spin {
+    to { transform: rotate(360deg); }
+  }
+  .animate-spinner {
+    animation: pulse-spin 0.7s linear infinite;
+  }
+
+  /* Skeleton shimmer */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-muted) 25%,
+      color-mix(in oklab, var(--color-muted) 60%, white) 50%,
+      var(--color-muted) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+  }
+
+  /* Modal fade */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-fade-in { animation: fade-in 0.15s ease-out; }
+  .animate-scale-in { animation: scale-in 0.15s ease-out; }
+
+  /* Collapsible chevron */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-collapsible-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-collapsible-content-height); }
+    to { height: 0; }
+  }
+  .animate-accordion-down { animation: accordion-down 0.18s ease-out; }
+  .animate-accordion-up { animation: accordion-up 0.18s ease-out; }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted-foreground);
+  }
+}

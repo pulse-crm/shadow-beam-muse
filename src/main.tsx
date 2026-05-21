@@ -1,13 +1,20 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import "./index.css";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles/globals.css';
+import App from './App.tsx';
 
-createRoot(document.getElementById("root")!).render(
+// Apply persisted theme + dark mode before first paint to avoid a flash.
+try {
+  const root = document.documentElement;
+  if (localStorage.getItem("app-dark-mode") === "true") root.classList.add("dark");
+  const theme = localStorage.getItem("app-theme");
+  if (theme && theme !== "default") root.classList.add(`theme-${theme}`);
+} catch {
+  /* storage may be unavailable */
+}
+
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="system" storageKey="architecture-theme">
-      <App />
-    </ThemeProvider>
-  </StrictMode>
+    <App />
+  </StrictMode>,
 );
